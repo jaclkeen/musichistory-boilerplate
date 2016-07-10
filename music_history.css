@@ -1,0 +1,88 @@
+body{
+  width: 70%;
+  margin: auto;
+  margin-top: 4.5%;
+}
+nav {
+  background-color: #FFB4B0;
+  border: 3px solid black;
+  margin: auto;
+  height: 55px;
+  width: 825px;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0, 3px, 0 3px;
+  font-size: 1.2em;
+}
+
+.sidebar {
+  float: left;
+  display: block;
+  margin-top: 1%;
+  margin-left: 19.1%;
+  width: 250px;
+  height: 439px;
+  background-color: #4DD7FA;
+  border: 3px solid black;
+  font-size: 1.3em;
+}
+
+.sidebar label, .sidebar p{
+  padding-left: 4%;
+  font-weight: bold;
+}
+
+
+.sidebar input[type="button"]{
+  margin-left: 32.5%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  border-radius: 15px;
+  border: 2px solid black;
+  padding: 2%;
+  width: 35%;
+}
+.sidebar label{
+  margin-top: 3%;
+}
+
+.sidebar select {
+  padding: 2%;
+  width: 70%;
+  margin-top: 4%;
+  margin-left: 14%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.sidebar input[type="range"] {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.sidebar input[type="checkbox"]{
+  vertical-align: middle;
+  margin-left: 8%;
+}
+
+main section {
+  float: right;
+  background-color: #FEFAC0;
+  border: 3px solid black;
+  width: 41%;
+  margin-top: 1%;
+  margin-right: 19.05%;
+}
+
+main section p {
+  display: inline-block;
+  margin-left: 3%;
+}
+
+main section h2{
+  margin-left: 3%;
+  color: #785616;
+  line-height: 20px;
+}
