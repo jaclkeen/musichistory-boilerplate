@@ -3,6 +3,11 @@ body{
   margin: auto;
   margin-top: 4.5%;
 }
+div.music {
+  display: inline-block;
+  width: 830px;
+  margin-left: 17%;
+}
 nav {
   background-color: #FFB4B0;
   border: 3px solid black;
@@ -21,9 +26,8 @@ nav li {
   float: left;
   display: block;
   margin-top: 1%;
-  margin-left: 19.1%;
   width: 250px;
-  height: 439px;
+  height: 443px;
   background-color: #4DD7FA;
   border: 3px solid black;
   font-size: 1.3em;
@@ -71,9 +75,8 @@ main section {
   float: right;
   background-color: #FEFAC0;
   border: 3px solid black;
-  width: 41%;
+  width: 67%;
   margin-top: 1%;
-  margin-right: 19.05%;
 }
 
 main section p {
