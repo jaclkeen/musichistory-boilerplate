@@ -6,79 +6,99 @@
   <meta charset="utf-8">
   <title>Music History Exercise</title>
 </head>
-
 <body>
 
-<div class="music">
   <nav>
-  <ul>
-    <li>View Music  |</li>
-    <a href=""><li>Add Music  |</li></a>
-    <a href=""><li>Profile</li></a>
-  </ul>
+    <ul>
+      <a href="#" id="view_music"><li>View Music  </li><span>|</span></a>
+      <a href="#" id="add_button"><li>Add Music  </li><span>|</span></a>
+      <a href="#" id="music_profile"><li>Profile</li><span>|</span></a>
+    </ul>
   </nav>
-<section class="sidebar"><br>
-  <label for="length">Song length:</label><br>
-  <input type="range" name="length" class="length" id="length"><br>
+  <div class="wrapper">
+    <div class="music" id="music">
+      <section class="sidebar"><br>
+        <label for="length">Song length:</label><br>
+        <input type="range" name="length" class="length" id="length"><br>
 
-  <label for="artist">Artist:</label><br>
-  <select id="artist">
-    <option value="one">Option 1</option>
-    <option value="two">Option 2</option>
-    <option value="three">Option 3</option>
-    <option value="four">Option 4</option>
-    <option value="five">Option 5</option>
-  </select><br>
+        <label for="artist">Artist:</label><br>
+        <select id="artist">
+          <option value="one">Option 1</option>
+          <option value="two">Option 2</option>
+          <option value="three">Option 3</option>
+          <option value="four">Option 4</option>
+          <option value="five">Option 5</option>
+        </select><br>
 
-  <label for="album">Album:</label><br>
-  <select id="album">
-    <option value="one">Option 1</option>
-    <option value="two">Option 2</option>
-    <option value="three">Option 3</option>
-    <option value="four">Option 4</option>
-    <option value="five">Option 5</option>
-  </select>
+        <label for="album">Album:</label><br>
+        <select id="album">
+          <option value="one">Option 1</option>
+          <option value="two">Option 2</option>
+          <option value="three">Option 3</option>
+          <option value="four">Option 4</option>
+          <option value="five">Option 5</option>
+        </select>
 
-  <p>Genre:</p>
-  <input type="checkbox" name="rock" value="rock" id="rock"><label for="rock">Rock</label>
+        <p>Genre:</p>
+        <input type="checkbox" name="rock" value="rock" id="rock"><label for="rock">Rock</label>
 
-  <input type="checkbox" name="pop" value="pop" id="pop"><label for="pop">Pop</label><br>
+        <input type="checkbox" name="pop" value="pop" id="pop"><label for="pop">Pop</label><br>
 
-  <input type="checkbox" name="blues" value="blues" id="blues"><label for="blues">Blues</label>
+        <input type="checkbox" name="blues" value="blues" id="blues"><label for="blues">Blues</label>
 
-  <input type="checkbox" name="classical" value="classical" id="classical"><label for="classical">Classical</label><br>
+        <input type="checkbox" name="classical" value="classical" id="classical"><label for="classical">Classical</label><br>
 
-  <input type="checkbox" name="jazz" value="jazz" id="jazz"><label for="jazz">Jazz</label>
+        <input type="checkbox" name="jazz" value="jazz" id="jazz"><label for="jazz">Jazz</label>
 
-  <input type="checkbox" name="hiphop" value="hiphop" id="hiphop"><label for="hiphop">Hip Hop</label><br>
+        <input type="checkbox" name="hiphop" value="hiphop" id="hiphop"><label for="hiphop">Hip Hop</label><br>
 
-  <input type="button" name="filter" id="filter" value="Filter">
-</section>
+        <input type="button" name="filter" id="filter" value="Filter">
+      </section>
 
-<main>
-<section>
-  <h2 class="song_name">Song Name</h2>
-  <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
-  <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
-  <p class="genre">Genre</p>
+    <main>
+      <section class="songlist">
+        <h2 class="song_name">Song Name</h2>
+        <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
+        <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
+        <p class="genre">Genre</p>
 
-  <h2 class="song_name">Song Name</h2>
-  <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
-  <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
-  <p class="genre">Genre</p>
+        <h2 class="song_name">Song Name</h2>
+        <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
+        <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
+        <p class="genre">Genre</p>
 
-  <h2 class="song_name">Song Name</h2>
-  <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
-  <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
-  <p class="genre">Genre</p>
+        <h2 class="song_name">Song Name</h2>
+        <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
+        <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
+        <p class="genre">Genre</p>
 
-  <h2 class="song_name">Song Name</h2>
-  <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
-  <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
-  <p class="genre">Genre</p>
-</section>
-</main>
+        <h2 class="song_name">Song Name</h2>
+        <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
+        <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
+        <p class="genre">Genre</p>
+      </section>
+    </main>
+  </div>
 </div>
+
+  <div class="add_music">
+    <section class="hidden" id="add_music">
+      <fieldset class="new_song_form">
+        <legend class="add_music_legend">Add Music</legend>
+          <label for="add_song">Song Name: </label>
+          <span><input type="text" id="add_song" name="add_song"></span><br><br>
+
+          <label for="add_artist">Artist: </label>
+          <span><input type="text" id="add_artist" name="add_artist"></span><br><br>
+
+          <label for="add_album">Album: </label>
+          <span><input type="text" id="add_album" name="add_album"></span><br><br>
+
+          <input type="button" name="add" value="Add Song">
+      </fieldset>
+    </section>
+  </div>
 <script type="text/javascript" src="songs.js"></script>
+<script src="add.js"></script>
 </body>
 </html>

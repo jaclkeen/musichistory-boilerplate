@@ -3,10 +3,14 @@ body{
   margin: auto;
   margin-top: 4.5%;
 }
+
+div.wrapper{
+  margin-left: 11.3%;
+}
 div.music {
   display: inline-block;
   width: 830px;
-  margin-left: 3%;
+  /*margin-left: 3%;*/
 }
 nav {
   background-color: #FFB4B0;
@@ -16,9 +20,14 @@ nav {
   width: 825px;
 }
 
+nav ul li:hover{
+  text-decoration: underline;
+}
+
 nav li {
   display: inline-block;
-  margin: 0, 3px, 0 3px;
+  margin-right: 1%;
+  margin-left: 1%;
   font-size: 1.2em;
 }
 
@@ -80,11 +89,53 @@ main section {
 
 main section p {
   display: inline-block;
-  margin-left: 3%;
+  padding-left: 3%;
 }
 
 main section h2{
-  margin-left: 3%;
+  padding-left: 3%;
   color: #785616;
   line-height: 20px;
+}
+
+.add_music_legend{
+  font-size: 1.4em;
+  background-color: black;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #FEFAC0;
+}
+
+.new_song_form{
+  background-color: #4DD7FA;
+  border: 2px solid black;
+  width: 803px;
+  margin-left: 11.4%;
+  margin-top: .5%;
+}
+
+.hidden{
+  display: none;
+}
+
+.new_song_form label{
+  margin-left: 30%;
+  font-size: 1.2em;
+  margin-right: 5%;
+}
+
+.new_song_form input{
+  vertical-align: middle;
+  border-radius: 20px;
+  padding: .5%;
+  border: 2px solid black;
+}
+
+.new_song_form input[type="button"]{
+  padding-right: 4%;
+  padding-left: 4%;
+  margin-left: 42%;
+  font-size: 1.1em;
+  border: 2px solid black;
 }

@@ -20,8 +20,6 @@ function replaceChars(){
 
 function addSongsToDom() {
   var song_name = document.getElementsByClassName("song_name");
-  var genre = document.getElementsByClassName("genre");
-
   for(var i = 0; i < songs.length; i++){
       var j = songs[i].indexOf("-");
       song_name[i].innerHTML = songs[i].slice(0,j);
@@ -42,10 +40,26 @@ function addAlbumToDom(){
   for (var i = 0; i < songs.length; i++){
       var begin_slice = songs[i].indexOf("album");
       album[i].innerHTML = songs[i].slice(begin_slice + 6, songs[i].length);
-    }
+  }
+}
+
+function spa(){
+  var add_page = document.getElementById("add_button");
+  var view_page = document.getElementById("view_music");
+
+  add_page.addEventListener("click", function(){
+    document.getElementById("add_music").className = "";
+    document.getElementById("music").className = "hidden";
+  })
+
+  view_page.addEventListener("click", function(){
+    document.getElementById("music").className = "music";
+    document.getElementById("add_music").className = "hidden";
+  })
 }
 
 console.log(replaceChars());
 addSongsToDom();
 addArtistToDom();
 addAlbumToDom();
+spa();
