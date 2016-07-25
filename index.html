@@ -50,14 +50,15 @@
 
         <input type="checkbox" name="jazz" value="jazz" id="jazz"><label for="jazz">Jazz</label>
 
-        <input type="checkbox" name="hiphop" value="hiphop" id="hiphop"><label for="hiphop">Hip Hop</label><br>
+        <input type="checkbox" name="hiphop" value="hiphop" id="hiphop"><label for="hiphop">Hip Hop</label><br><br>
 
         <input type="button" name="filter" id="filter" value="Filter">
       </section>
 
     <main>
-      <section class="songlist">
-        <h2 class="song_name">Song Name</h2>
+      <section class="songlist" id="songlist">
+        <!-- SONG LIST GOES HERE -->
+        <!--  <h2 class="song_name">Song Name</h2>
         <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
         <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
         <p class="genre">Genre</p>
@@ -75,7 +76,7 @@
         <h2 class="song_name">Song Name</h2>
         <p class="artist">Arist name</p><span> &nbsp;|&nbsp; </span>
         <p class="album">Album name</p><span> &nbsp;|&nbsp; </span>
-        <p class="genre">Genre</p>
+        <p class="genre">Genre</p> -->
       </section>
     </main>
   </div>
@@ -94,11 +95,10 @@
           <label for="add_album">Album: </label>
           <span><input type="text" id="add_album" name="add_album"></span><br><br>
 
-          <input type="button" name="add" value="Add Song">
+          <input type="button" id="add" name="add" value="Add Song">
       </fieldset>
     </section>
   </div>
 <script type="text/javascript" src="songs.js"></script>
-<script src="add.js"></script>
 </body>
 </html>
