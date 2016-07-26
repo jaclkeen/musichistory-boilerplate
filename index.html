@@ -7,15 +7,14 @@
   <title>Music History Exercise</title>
 </head>
 <body>
-
+<div class="big_wrapper">
   <nav>
     <ul>
-      <a href="#" id="view_music"><li>View Music  </li><span>|</span></a>
-      <a href="#" id="add_button"><li>Add Music  </li><span>|</span></a>
-      <a href="#" id="music_profile"><li>Profile</li><span>|</span></a>
+      <a href="#" id="view_music"><li>View Music  </li></a><span>|</span>
+      <a href="#" id="add_button"><li>Add Music  </li></a><span>|</span>
+      <a href="#" id="music_profile"><li>Profile</li></a><span>|</span>
     </ul>
   </nav>
-  <div class="wrapper">
     <div class="music" id="music">
       <section class="sidebar"><br>
         <label for="length">Song length:</label><br>
@@ -38,7 +37,6 @@
           <option value="four">Option 4</option>
           <option value="five">Option 5</option>
         </select>
-
         <p>Genre:</p>
         <input type="checkbox" name="rock" value="rock" id="rock"><label for="rock">Rock</label>
 
@@ -62,9 +60,8 @@
     </main>
   </div>
 </div>
-
-  <div class="add_music">
-    <section class="hidden" id="add_music">
+  <div id="add_music" class="hidden">
+    <section class="add_music">
       <fieldset class="new_song_form">
         <legend class="add_music_legend">Add Music</legend>
           <label for="add_song">Song Name: </label>
@@ -76,10 +73,12 @@
           <label for="add_album">Album: </label>
           <span><input type="text" id="add_album" name="add_album"></span><br><br>
 
-          <input type="button" id="add" name="add" value="Add Song">
+          <input type="button" class="add" id="add" name="add" value="Add Song">
+          <input type="button" class="clear" name="clear" id="clear" value="Clear">
       </fieldset>
     </section>
   </div>
+</div>
 <script type="text/javascript" src="songs.js"></script>
 </body>
 </html>

@@ -78,24 +78,37 @@ function addSongPage(){
   var add_song = document.getElementById("add_song").value;
   var add_album = document.getElementById("add_album").value;
   var add_artist = document.getElementById("add_artist").value;
-  songs[songs.length] = `${add_song}- by ${add_artist} on the album ${add_artist}`;
-  alert("Song added!");
-
-  var new_song = document.createElement("div");
-  new_song.innerHTML += `<h2 class='song_name'>${add_song}</h2>
-    <p class='artist'>${add_artist}</p><span> &nbsp;|&nbsp;</span>
-    <p class='album'>${add_album}</p><span> &nbsp;|&nbsp; </span>
-    <p class="genre">Genre</p>`;
-  songlist.appendChild(new_song);
-
-
-for(var i = 0; i < songs.length; i++){
-  console.log(songs[i]);
+  //VALIDATE SONG INPUT
+  if(add_song === "" && add_album === "" && add_artist === ""){
+    return alert("All 3 field must have a value!");
+  }
+  else{
+    songs[songs.length] = `${add_song}- by ${add_artist} on the album ${add_artist}`;
+    alert("Song added!");
+    //APPENDS SONG TO DIV
+    var new_song = document.createElement("div");
+    new_song.innerHTML += `<h2 class='song_name'>${add_song}</h2>
+          <p class='artist'>${add_artist}</p><span> &nbsp;|&nbsp;</span>
+          <p class='album'>${add_album}</p><span> &nbsp;|&nbsp; </span>
+          <p class="genre">Genre</p>`;
+    songlist.appendChild(new_song);
+    clearPage();
+  }
 }
+
+function clearPage(){
+  document.getElementById("add_song").value = "";
+  document.getElementById("add_album").value = "";
+  document.getElementById("add_artist").value = "";
 }
 
+//ADD SONG ON ADD MUSIC PAGE EVENT LISTENER
 var add_song = document.getElementById("add");
 add_song.addEventListener("click", addSongPage);
+
+//CLEAR INPUT FIELDS ON ADD MUSIC PAGE
+var clear_add_music_fields = document.getElementById("clear");
+clear_add_music_fields.addEventListener("click", clearPage);
 
 console.log(replaceChars());
 add()

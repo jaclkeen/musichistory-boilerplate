@@ -1,27 +1,33 @@
 body{
-  width: 70%;
+  background-color: black;
+  width: 90%;
   margin: auto;
-  margin-top: 4.5%;
+  margin-top: 3%;
 }
 
-div.wrapper{
-  margin-left: 11.3%;
+.big_wrapper{
+  display: flex;
+  margin: auto;
+  flex-flow: column wrap;
+  width: 80%;
+  justify-content: center;
 }
+
 div.music {
   display: inline-block;
-  width: 830px;
-  /*margin-left: 3%;*/
+  width: 100%;
 }
 nav {
   background-color: #FFB4B0;
-  border: 3px solid black;
-  margin: auto;
+  border: 3px solid white;
+  margin-bottom: .5%;
   height: 55px;
-  width: 825px;
+  width: 99.6%;
 }
 
 nav ul li:hover{
   text-decoration: underline;
+  color: #785616;
 }
 
 nav li {
@@ -29,17 +35,18 @@ nav li {
   margin-right: 1%;
   margin-left: 1%;
   font-size: 1.2em;
+  color: black;
 }
 
 .sidebar {
   float: left;
   display: block;
   margin-top: 1%;
-  width: 250px;
-  height: 443px;
+  width: 27%;
+  height: 440.5px;
   background-color: #4DD7FA;
-  border: 3px solid black;
-  font-size: 1.3em;
+  border: 3px solid white;
+  font-size: 1.25em;
 }
 
 .sidebar label, .sidebar p{
@@ -81,8 +88,8 @@ nav li {
 main section {
   float: right;
   background-color: #FEFAC0;
-  border: 3px solid black;
-  width: 67%;
+  border: 3px solid white;
+  width:70%;
   margin-top: 1%;
 }
 
@@ -97,21 +104,24 @@ main section h2{
   line-height: 20px;
 }
 
+section.add_music{
+  width: 100%;
+}
+
 .add_music_legend{
   font-size: 1.4em;
-  background-color: black;
+  background-color: white;
   border-radius: 20px;
   padding-left: 10px;
   padding-right: 10px;
-  color: #FEFAC0;
+  color: black;
 }
 
 .new_song_form{
   background-color: #4DD7FA;
-  border: 2px solid black;
-  width: 803px;
-  margin-left: 11.4%;
-  margin-top: .5%;
+  border: 3px solid white;
+  width: 78%;
+  margin: auto;
 }
 
 .hidden{
@@ -125,7 +135,6 @@ main section h2{
 }
 
 .new_song_form input{
-  vertical-align: middle;
   border-radius: 20px;
   padding: .5%;
   border: 2px solid black;
@@ -134,7 +143,13 @@ main section h2{
 .new_song_form input[type="button"]{
   padding-right: 4%;
   padding-left: 4%;
-  margin-left: 42%;
   font-size: 1.1em;
-  border: 2px solid black;
+}
+
+.add{
+  margin-left: 30%;
+}
+
+.clear{
+  margin-left: 5%;
 }
