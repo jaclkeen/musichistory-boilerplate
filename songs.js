@@ -1,22 +1,22 @@
 var songs = [];
-songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
-songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
-songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
-songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
+// songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
+// songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
+// songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
+// songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
 
-function replaceChars(){
-  for(var i = 0; i < songs.length; i++){
-    if(songs[i].includes('>')){
-      songs[i] = songs[i].replace(">", "-");
-    }
-    if(songs[i].includes('(') || songs[i].includes('@') || songs[i].includes('*')) {
-      songs[i] = songs[i].replace("(", "");
-      songs[i] = songs[i].replace("@", "");
-      songs[i] = songs[i].replace("*", "");
-    }
-  }
-  return songs;
-}
+// function replaceChars(){
+//   for(var i = 0; i < songs.length; i++){
+//     if(songs[i].includes('>')){
+//       songs[i] = songs[i].replace(">", "-");
+//     }
+//     if(songs[i].includes('(') || songs[i].includes('@') || songs[i].includes('*')) {
+//       songs[i] = songs[i].replace("(", "");
+//       songs[i] = songs[i].replace("@", "");
+//       songs[i] = songs[i].replace("*", "");
+//     }
+//   }
+//   return songs;
+// }
 
 function addSongsToDom() {
   var song_name = document.getElementsByClassName("song_name");
@@ -49,37 +49,23 @@ function addAlbumToDom(){
   return modified_album;
 }
 
-function addSongFromArray(){
-  for(var i = 0; i < songs.length; i++){
-    var song = document.createElement("div");
-    song.className = 'title';
-    song.innerHTML += `<h2 class='song_name'>${addSongsToDom()[i]}
-              <button class='delete'>X</button></h2>
-              <p class='artist'>${addArtistToDom()[i]}</p><span> &nbsp;|&nbsp;</span>
-              <p class='album'>${addAlbumToDom()[i]}</p><span> &nbsp;|&nbsp; </span>
-              <p class="genre">Genre</p>`;
-    song.addEventListener("click", function(e){
-      if(e.target && e.target.nodeName === "BUTTON"){
-        songlist.removeChild(this);
-      }
-    })
-    songlist.appendChild(song);
-  }
-}
-
-function spa(){
-  var add_page = document.getElementById("add_button");
-  var view_page = document.getElementById("view_music");
-
-  add_page.addEventListener("click", function(){
-    document.getElementById("add_music").className = "";
-    document.getElementById("music").className = "hidden";
-  })
-  view_page.addEventListener("click", function(){
-    document.getElementById("music").className = "music";
-    document.getElementById("add_music").className = "hidden";
-  })
-}
+// function addSongFromArray(){
+//   for(var i = 0; i < songs.length; i++){
+//     var song = document.createElement("div");
+//     song.className = 'title';
+//     song.innerHTML += `<h2 class='song_name'>${addSongsToDom()[i]}
+//               <button class='delete'>X</button></h2>
+//               <p class='artist'>${addArtistToDom()[i]}</p><span> &nbsp;|&nbsp;</span>
+//               <p class='album'>${addAlbumToDom()[i]}</p><span> &nbsp;|&nbsp; </span>
+//               <p class="genre">Genre</p>`;
+//     song.addEventListener("click", function(e){
+//       if(e.target && e.target.nodeName === "BUTTON"){
+//         songlist.removeChild(this);
+//       }
+//     })
+//     songlist.appendChild(song);
+//   }
+// }
 
 function addFromSongPageUserInput(){
   var add_song = document.getElementById("add_song").value;
@@ -103,7 +89,7 @@ function addFromSongPageUserInput(){
     ////////DELETE BUTTON////////
     new_song.addEventListener("click", function(e){
       if(e.target && e.target.nodeName === "BUTTON"){
-      songlist.removeChild(this);
+        songlist.removeChild(this);
       }
     })
     songlist.appendChild(new_song);
@@ -112,10 +98,56 @@ function addFromSongPageUserInput(){
   }
 }
 
+function spa(){
+  var add_page = document.getElementById("add_button");
+  var view_page = document.getElementById("view_music");
+
+  add_page.addEventListener("click", function(){
+    document.getElementById("add_music").className = "";
+    document.getElementById("music").className = "hidden";
+  })
+  view_page.addEventListener("click", function(){
+    document.getElementById("music").className = "music";
+    document.getElementById("add_music").className = "hidden";
+  })
+}
+
 function clearPage(){
   document.getElementById("add_song").value = "";
   document.getElementById("add_album").value = "";
   document.getElementById("add_artist").value = "";
+}
+
+function readFromJSON(callback){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'songs.json')
+  xhr.addEventListener('load', function(evt){
+    songs = JSON.parse(evt.target.responseText);
+    callback(songs);
+    console.log(songs)
+  })
+  xhr.send();
+}
+
+function addJSONSongs(song_info){
+  var songlist = document.getElementById('songlist');
+  song_info.forEach(function(item){
+    var song_element = document.createElement('div');
+    song_element.innerHTML += `<h2 class='song_name'>${item.title}
+              <button class='delete'>X</button></h2>
+              <p class='artist'>${item.artist}</p><span> &nbsp;|&nbsp;</span>
+              <p class='album'>${item.album}</p><span> &nbsp;|&nbsp; </span>
+              <p class="genre">Genre</p>`;
+
+    song_element.addEventListener("click", function(e){
+      if(e.target && e.target.nodeName === "BUTTON"){
+        songlist.removeChild(this);
+        console.log(this);
+      }
+    })
+
+    songlist.appendChild(song_element);
+  });
 }
 
 //ADD SONG ON ADD MUSIC PAGE EVENT LISTENER
@@ -126,6 +158,7 @@ add_song.addEventListener("click", addFromSongPageUserInput);
 var clear_add_music_fields = document.getElementById("clear");
 clear_add_music_fields.addEventListener("click", clearPage);
 
-console.log(replaceChars());
-addSongFromArray()
+// console.log(replaceChars());
+// addSongFromArray();
+readFromJSON(addJSONSongs);
 spa();

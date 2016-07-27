@@ -1,8 +1,9 @@
+/*GENERAL AND WRAPPER STYLING*/
 body{
   background-color: black;
   width: 90%;
   margin: auto;
-  margin-top: 3%;
+  margin-top: 1%;
 }
 
 .big_wrapper{
@@ -17,10 +18,11 @@ div.music {
   display: inline-block;
   width: 100%;
 }
+
+/*NAV STYLING*/
 nav {
   background-color: #FFB4B0;
   border: 3px solid white;
-  margin-bottom: .5%;
   height: 55px;
   width: 99.6%;
 }
@@ -38,15 +40,15 @@ nav li {
   color: black;
 }
 
+/*HOME SIDEBAR STYLING*/
 .sidebar {
   float: left;
   display: block;
   margin-top: 1%;
   width: 27%;
-  height: 446.5px;
   background-color: #4DD7FA;
   border: 3px solid white;
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 
 .sidebar label, .sidebar p{
@@ -56,14 +58,12 @@ nav li {
 
 .sidebar input[type="button"]{
   margin-left: 32.5%;
-  margin-top: 5%;
+  margin-top: 2%;
+  margin-bottom: 5%;
   border-radius: 15px;
   border: 2px solid black;
   padding: 2%;
   width: 35%;
-}
-.sidebar label{
-  margin-top: 3%;
 }
 
 .sidebar select {
@@ -82,14 +82,15 @@ nav li {
 
 .sidebar input[type="checkbox"]{
   vertical-align: middle;
-  margin-left: 8%;
+  margin-left: 14%;
 }
-
+/*MAIN MUSIC LIST DIV*/
 main section {
   float: right;
   background-color: #FEFAC0;
   border: 3px solid white;
   width:70%;
+  margin-bottom: 1%;
   margin-top: 1%;
 }
 
@@ -104,7 +105,17 @@ main section h2{
   line-height: 20px;
 }
 
+.main_title h2{
+  text-align: center;
+  color: black;
+}
+
+.main_title {
+  background-color: #4DD7FA;
+}
+/*ADD MUSIC PAGE STYLING*/
 section.add_music{
+  margin-top: .5%;
   width: 100%;
 }
 
@@ -115,7 +126,6 @@ section.add_music{
   padding-left: 10px;
   padding-right: 10px;
   color: black;
-
 }
 
 .new_song_form{
@@ -131,7 +141,7 @@ section.add_music{
 
 .new_song_form label{
   margin-left: 30%;
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin-right: 5%;
 }
 
