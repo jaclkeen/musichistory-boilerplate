@@ -49,13 +49,18 @@ function addAlbumToDom(){
   return modified_album;
 }
 
-function add(){
+function addSongFromArray(){
   for(var i = 0; i < songs.length; i++){
     var song = document.createElement("div");
-    song.innerHTML += `<h2 class='song_name'>${addSongsToDom()[i]}</h2>
-    <p class='artist'>${addArtistToDom()[i]}</p><span> &nbsp;|&nbsp;</span>
-    <p class='album'>${addAlbumToDom()[i]}</p><span> &nbsp;|&nbsp; </span>
-    <p class="genre">Genre</p>`;
+    song.className = 'title';
+    song.innerHTML += `<h2 class='song_name'>${addSongsToDom()[i]}
+              <button class='delete'>X</button></h2>
+              <p class='artist'>${addArtistToDom()[i]}</p><span> &nbsp;|&nbsp;</span>
+              <p class='album'>${addAlbumToDom()[i]}</p><span> &nbsp;|&nbsp; </span>
+              <p class="genre">Genre</p>`;
+    song.addEventListener("click", function(){
+      songlist.removeChild(this);
+    })
     songlist.appendChild(song);
   }
 }
@@ -74,7 +79,7 @@ function spa(){
   })
 }
 
-function addSongPage(){
+function addFromSongPageUserInput(){
   var add_song = document.getElementById("add_song").value;
   var add_album = document.getElementById("add_album").value;
   var add_artist = document.getElementById("add_artist").value;
@@ -83,15 +88,22 @@ function addSongPage(){
     return alert("All 3 field must have a value!");
   }
   else{
-    songs[songs.length] = `${add_song}- by ${add_artist} on the album ${add_artist}`;
+    songs.push(`${add_song}- by ${add_artist} on the album ${add_artist}`);
     alert("Song added!");
     //APPENDS SONG TO DIV
     var new_song = document.createElement("div");
-    new_song.innerHTML += `<h2 class='song_name'>${add_song}</h2>
-          <p class='artist'>${add_artist}</p><span> &nbsp;|&nbsp;</span>
-          <p class='album'>${add_album}</p><span> &nbsp;|&nbsp; </span>
-          <p class="genre">Genre</p>`;
+    new_song.className = 'title';
+    new_song.innerHTML = `<h2 class='song_name'>${add_song}
+                  <button class='delete'>X</button></h2>
+                  <p class='artist'>${add_artist}</p><span> &nbsp;|&nbsp;</span>
+                  <p class='album'>${add_album}</p><span> &nbsp;|&nbsp; </span>
+                  <p class="genre">Genre</p>`;
+    ////////DELETE BUTTON////////
+    new_song.addEventListener("click", function(){
+      songlist.removeChild(this);
+    })
     songlist.appendChild(new_song);
+    console.log(songs);
     clearPage();
   }
 }
@@ -104,12 +116,12 @@ function clearPage(){
 
 //ADD SONG ON ADD MUSIC PAGE EVENT LISTENER
 var add_song = document.getElementById("add");
-add_song.addEventListener("click", addSongPage);
+add_song.addEventListener("click", addFromSongPageUserInput);
 
 //CLEAR INPUT FIELDS ON ADD MUSIC PAGE
 var clear_add_music_fields = document.getElementById("clear");
 clear_add_music_fields.addEventListener("click", clearPage);
 
 console.log(replaceChars());
-add()
+addSongFromArray()
 spa();

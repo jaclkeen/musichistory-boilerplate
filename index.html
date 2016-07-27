@@ -1,12 +1,14 @@
 <!doctype html>
 
 <html lang="en">
-<head>
+<head><!--
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
   <link rel="stylesheet" type="text/css" href="music_history.css">
   <meta charset="utf-8">
   <title>Music History Exercise</title>
 </head>
 <body>
+<!-- <div class="container"> -->
 <div class="big_wrapper">
   <nav>
     <ul>
@@ -18,7 +20,7 @@
     <div class="music" id="music">
       <section class="sidebar"><br>
         <label for="length">Song length:</label><br>
-        <input type="range" name="length" class="length" id="length"><br>
+        <input type="range" name="length" class="length" id="length">
 
         <label for="artist">Artist:</label><br>
         <select id="artist">
@@ -78,6 +80,7 @@
       </fieldset>
     </section>
   </div>
+</div>
 </div>
 <script type="text/javascript" src="songs.js"></script>
 </body>

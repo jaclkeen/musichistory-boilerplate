@@ -115,6 +115,7 @@ section.add_music{
   padding-left: 10px;
   padding-right: 10px;
   color: black;
+
 }
 
 .new_song_form{
@@ -138,6 +139,22 @@ section.add_music{
   border-radius: 20px;
   padding: .5%;
   border: 2px solid black;
+}
+
+.delete{
+  position: relative;
+  left: 40px;
+  border-radius: 30px;
+  background-color: #FFB4B0;
+  border: 2px solid black;
+  font-size: .4em;
+  /*margin-left: 50%;*/
+  vertical-align: middle;
+}
+
+.delete:hover{
+  background-color: red;
+  cursor: pointer;
 }
 
 .new_song_form input[type="button"]{
