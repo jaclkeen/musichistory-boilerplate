@@ -58,8 +58,10 @@ function addSongFromArray(){
               <p class='artist'>${addArtistToDom()[i]}</p><span> &nbsp;|&nbsp;</span>
               <p class='album'>${addAlbumToDom()[i]}</p><span> &nbsp;|&nbsp; </span>
               <p class="genre">Genre</p>`;
-    song.addEventListener("click", function(){
-      songlist.removeChild(this);
+    song.addEventListener("click", function(e){
+      if(e.target && e.target.nodeName === "BUTTON"){
+        songlist.removeChild(this);
+      }
     })
     songlist.appendChild(song);
   }
@@ -99,8 +101,10 @@ function addFromSongPageUserInput(){
                   <p class='album'>${add_album}</p><span> &nbsp;|&nbsp; </span>
                   <p class="genre">Genre</p>`;
     ////////DELETE BUTTON////////
-    new_song.addEventListener("click", function(){
+    new_song.addEventListener("click", function(e){
+      if(e.target && e.target.nodeName === "BUTTON"){
       songlist.removeChild(this);
+      }
     })
     songlist.appendChild(new_song);
     console.log(songs);
