@@ -129,7 +129,7 @@ section.add_music{
   border-radius: 20px;
   padding-left: 10px;
   margin-left: 1.5%;
-  width: 13%;
+  width: 11%;
   color: black;
 }
 
@@ -145,7 +145,7 @@ section.add_music{
 }
 
 .new_song_form label{
-  margin-left: 30%;
+  margin-left: 37%;
   font-size: 1.4em;
   margin-right: 5%;
 }
@@ -178,7 +178,7 @@ section.add_music{
 }
 
 .add{
-  margin-left: 30%;
+  margin-left: 37%;
 }
 
 .clear{
