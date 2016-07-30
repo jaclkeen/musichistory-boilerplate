@@ -1,4 +1,4 @@
-var songs = [];
+// var songs = [];
 // songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
 // songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
 // songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
@@ -82,7 +82,7 @@ function addFromSongPageUserInput(){
     var new_song = document.createElement("div");
     new_song.className = 'title';
     new_song.innerHTML = `<h2 class='song_name'>${add_song}
-                  <button class='delete'>X</button></h2>
+                  <button class='remove glyphicon glyphicon-remove'></button></h2>
                   <p class='artist'>${add_artist}</p><span> &nbsp;|&nbsp;</span>
                   <p class='album'>${add_album}</p><span> &nbsp;|&nbsp; </span>
                   <p class="genre">Genre</p>`;
@@ -134,7 +134,7 @@ function addJSONSongs(song_info){
   song_info.forEach(function(item){
     var song_element = document.createElement('div');
     song_element.innerHTML += `<h2 class='song_name'>${item.title}
-              <button class='delete'>X</button></h2>
+              <button class='delete glyphicon glyphicon-remove'></button></h2>
               <p class='artist'>${item.artist}</p><span> &nbsp;|&nbsp;</span>
               <p class='album'>${item.album}</p><span> &nbsp;|&nbsp; </span>
               <p class="genre">Genre</p>`;
@@ -142,7 +142,6 @@ function addJSONSongs(song_info){
     song_element.addEventListener("click", function(e){
       if(e.target && e.target.nodeName === "BUTTON"){
         songlist.removeChild(this);
-        console.log(this);
       }
     })
 
