@@ -33,7 +33,7 @@ nav ul li:hover{
 
 nav li {
   display: inline-block;
-  margin-top: 1.5%;
+  margin-top: 1.2%;
   font-size: .6em;
   margin-right: 1%;
   margin-left: 1%;
@@ -117,6 +117,29 @@ main section h2{
   background-color: #4DD7FA;
   margin-bottom: 0;
 }
+
+.add_more{
+  margin-bottom: 0;
+  margin-top: -2%;
+  border: none;
+  cursor: pointer;
+}
+
+.drop_down{
+  margin-left: 46%;
+  font-size: 2em;
+}
+
+.more{
+  text-align: center;
+}
+
+.more span{
+  text-decoration: underline;
+  font-size: .7em;
+  text-align: center;
+}
+
 /*ADD MUSIC PAGE STYLING*/
 section.add_music{
   margin-top: .5%;
@@ -145,7 +168,7 @@ section.add_music{
 }
 
 .new_song_form label{
-  margin-left: 37%;
+  margin-left: 35%;
   font-size: 1.4em;
   margin-right: 5%;
 }
@@ -162,7 +185,7 @@ section.add_music{
   background-color: #FFB4B0;
   padding: .5%;
   border: 2px solid black;
-  font-size: .4em;
+  font-size: .45em;
   vertical-align: middle;
 }
 
@@ -184,3 +207,5 @@ section.add_music{
 .clear{
   margin-left: 5%;
 }
+
+
