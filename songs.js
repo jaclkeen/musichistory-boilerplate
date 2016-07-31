@@ -12,7 +12,7 @@ var Songs = (function(){
   }
 
   function addSongsToArray(item){
-    _songs.push(item);
+    _songs[_songs.length] = item;
     console.log(_songs);
   }
 

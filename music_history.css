@@ -180,13 +180,12 @@ section.add_music{
 }
 
 .delete{
-  margin-left: 5%;
+  margin-left: 7.5%;
   border-radius: 150px;
   background-color: #FFB4B0;
   padding: .5%;
   border: 2px solid black;
   font-size: .45em;
-  vertical-align: middle;
 }
 
 .delete:hover{

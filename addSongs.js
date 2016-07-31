@@ -26,25 +26,37 @@ function addUserInputSong(){
     return alert("All 3 field must have a value!");
   }
   else{
-    //songs.push(`${add_song}- by ${add_artist} on the album ${add_artist}`);
     alert("Song added!");
     //APPENDS SONG TO DIV
     var new_song = document.createElement("div");
     new_song.className = 'title';
     new_song.innerHTML = `<h2 class='song_name'>${add_song}
-                  <button class='delete glyphicon glyphicon-remove'></button></h2>
-                  <p class='artist'>${add_artist}</p><span> &nbsp;|&nbsp;</span>
-                  <p class='album'>${add_album}</p><span> &nbsp;|&nbsp; </span>
-                  <p class="genre">Genre</p>`;
+          <button class='delete glyphicon glyphicon-remove'></button></h2>
+          <p class='artist'>${add_artist}</p><span> &nbsp;|&nbsp;</span>
+          <p class='album'>${add_album}</p><span> &nbsp;|&nbsp; </span>
+          <p class="genre">Genre</p>`;
     ////////DELETE BUTTON////////
     new_song.addEventListener("click", function(e){
       if(e.target && e.target.nodeName === "BUTTON"){
         songlist.removeChild(this);
       }
     })
+    Songs.addSong(new_song);
     songlist.appendChild(new_song);
     clearPage();
   }
+}
+
+function showSecondJSONFile(callback){
+  var newSongs = [];
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'moreSongs.json');
+  xhr.addEventListener('load', function(event){
+    newSongs = JSON.parse(event.target.responseText);
+    callback(newSongs);
+    Songs.addSong(newSongs);
+  })
+  xhr.send();
 }
 
 function eventListeners(){
@@ -55,6 +67,13 @@ function eventListeners(){
   var clear_add_music_fields = document.getElementById("clear");
   clear_add_music_fields.addEventListener("click", clearPage);
 
+// ADDS SECOND JSON FILE TO DOM ON 'MORE' CLICK
   var more = document.getElementById('add_more');
-  more.addEventListener("click", showSecondJSONFile);
+  var more_tag = document.getElementById('more');
+  more.addEventListener("click", function(){
+    showSecondJSONFile(addToDom);
+    more.style.display = 'none';
+    //more.className = 'glyphicon glyphicon-chevron-up';
+    //more_tag.innerHTML = 'Less'
+  })
 }
