@@ -19,14 +19,11 @@ function showJSON(file){
 }
 
 function spa(){
-  var $add_page = $("#add_button");
-  var $view_page = $("#view_music");
-
-  $add_page.on("click", function(){
+  $('#add_button').on("click", function(){
     $("#add_music").removeClass('hidden');
     $("#music").addClass("hidden");
   })
-  $view_page.on("click", function(){
+  $("#view_music").on("click", function(){
     $("#music").removeClass('hidden');
     $("#add_music").addClass('hidden');
   })
@@ -37,7 +34,6 @@ function clearPage(){
   $("#add_album").val("");
   $("#add_artist").val("");
 }
-
 showJSON('songs.json');
 eventListeners();
 spa();

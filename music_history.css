@@ -132,6 +132,12 @@ main section h2{
 
 .more{
   text-align: center;
+  padding: 1%;
+  background: black;
+  border-radius: 30px;
+  opacity: .7;
+  color: #FEFAC0;
+  font-size: 2.75em;
 }
 
 .more span{
@@ -152,7 +158,7 @@ section.add_music{
   border-radius: 20px;
   padding-left: 10px;
   margin-left: 1.5%;
-  width: 11%;
+  width: 15%;
   color: black;
 }
 
