@@ -1,49 +1,44 @@
 var Songs = (function(){
   var _songs = [];
-
-  function getSongs(callback){
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'songs.json')
-    xhr.addEventListener('load', function(evt){
-      _songs = JSON.parse(evt.target.responseText);
-      callback(_songs);
-  })
-  xhr.send();
-  }
-
   function addSongsToArray(item){
     _songs[_songs.length] = item;
     console.log(_songs);
   }
 
   return {
-    getSong: getSongs,
     addSong: addSongsToArray
   }
 })()
 
-function spa(){
-  var add_page = document.getElementById("add_button");
-  var view_page = document.getElementById("view_music");
-
-  add_page.addEventListener("click", function(){
-    document.getElementById("add_music").className = "";
-    document.getElementById("music").className = "hidden";
+function showJSON(file){
+  $.ajax({
+    url: file
+  }).done(function(content){
+    addToDom(content);
   })
-  view_page.addEventListener("click", function(){
-    document.getElementById("music").className = "music";
-    document.getElementById("add_music").className = "hidden";
+}
+
+function spa(){
+  var $add_page = $("#add_button");
+  var $view_page = $("#view_music");
+
+  $add_page.on("click", function(){
+    $("#add_music").removeClass('hidden');
+    $("#music").addClass("hidden");
+  })
+  $view_page.on("click", function(){
+    $("#music").removeClass('hidden');
+    $("#add_music").addClass('hidden');
   })
 }
 
 function clearPage(){
-  document.getElementById("add_song").value = "";
-  document.getElementById("add_album").value = "";
-  document.getElementById("add_artist").value = "";
+  $("#add_song").val("");
+  $("#add_album").val("");
+  $("#add_artist").val("");
 }
 
-//ADD SONG ON ADD MUSIC PAGE EVENT LISTENER
-Songs.getSong(addToDom);
+showJSON('songs.json');
 eventListeners();
 spa();
 
