@@ -7,11 +7,14 @@ function addToDom(song_info){
         <p class='artist'>${item.artist}</p><span> &nbsp;|&nbsp;</span>
         <p class='album'>${item.album}</p><span> &nbsp;|&nbsp; </span>
         <p class="genre">Genre</p>`);
+
     $song_element.on("click", function(e){
       if(e.target && e.target.nodeName === "BUTTON"){
         $(this).remove()
       }
     })
+
+    Songs.addSong(item)
     $songlist.append($song_element);
   });
 }
@@ -27,22 +30,12 @@ function addUserInputSong(){
   }
   else{
     alert("Song added!");
-    //APPENDS SONG TO DIV
-    var $new_song = $("<div></div>");
-    $new_song.addClass('title');
-    $new_song.html(`<h2 class='song_name'>${$add_song}
-          <button class='delete glyphicon glyphicon-remove'></button></h2>
-          <p class='artist'>${$add_artist}</p><span> &nbsp;|&nbsp;</span>
-          <p class='album'>${$add_album}</p><span> &nbsp;|&nbsp; </span>
-          <p class="genre">Genre</p>`);
-    ////////DELETE BUTTON////////
-    $new_song.on("click", function(e){
-      if(e.target && e.target.nodeName === "BUTTON"){
-        $(this).remove();
-      }
-    })
-    Songs.addSong($new_song);
-    $('#songlist').append($new_song);
+    var userSong = [{
+      title: $add_song,
+      artist: $add_album,
+      album: $add_album
+    }]
+    addToDom(userSong)
     clearPage();
   }
 }
@@ -57,7 +50,6 @@ function eventListeners(){
 
 // ADDS SECOND JSON FILE TO DOM ON 'MORE' CLICK
   var $more = $('#add_more');
-  //var more_tag = document.getElementById('more');
   $more.on("click", function(){
     showJSON('moreSongs.json')
     $(this).css("display", "none");
