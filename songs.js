@@ -40,17 +40,19 @@ function clearPage(){
   $("#add_length").val("");
 }
 
-// function addArtists(arr){
-//   var artist_select = $('#artist')
-//   var i = 0
-//   arr.forEach(function(item){
-//     if(artist_select.children(i) !== item.artist){
-//       artist_select.children(i).html(item.artist)
-//     }
-//   })
-// }
+function addArtistsFilter(arr){
+  var artist_select = document.getElementById('artist')
+  var new_artist = []
+  var i = 0
+    for(var j = 0; j < arr.length; j++){
+      if(new_artist[i] !== arr[j].artist){
+        new_artist.push(arr[j].artist)
+        artist_select.innerHTML += `<option>${new_artist}</option`
+      }
+    }
+  console.log(new_artist)
+}
 
 Songs.loadFiles('songs.json');
 eventListeners()
 Songs.SPA();
-// addArtists(Songs.getSongs)

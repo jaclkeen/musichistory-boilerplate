@@ -17,6 +17,7 @@ function addToDom(song_info){
     Songs.addSong(item)
     $songlist.append($song_element);
   });
+  addArtistsFilter(song_info)
 }
 
 function addUserInputSong(){
