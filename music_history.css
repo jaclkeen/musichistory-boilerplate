@@ -4,6 +4,7 @@ body{
   width: 90%;
   margin: auto;
   margin-top: 1%;
+  font-family: 'Taviraj', serif;
 }
 
 .big_wrapper{
@@ -33,7 +34,7 @@ nav ul li:hover{
 
 nav li {
   display: inline-block;
-  margin-top: 1.2%;
+  margin-top: 1.6%;
   font-size: .6em;
   margin-right: 1%;
   margin-left: 1%;
@@ -68,16 +69,27 @@ nav li {
 }
 
 .sidebar select {
-  padding: 2%;
+  padding: 1%;
   width: 70%;
-  margin-top: 4%;
+  margin-top: 3%;
+  margin-bottom: 3%;
   margin-left: 14%;
   text-align: center;
   border-radius: 10px;
 }
 
+.length_val{
+  margin-left: 10%;
+  font-size: .9em;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 40px;
+  padding: 1.75%;
+}
+
 .sidebar input[type="range"] {
-  width: 80%;
+  width: 70%;
+  display: inline-block;
   margin-left: 10%;
 }
 
@@ -116,6 +128,8 @@ main section h2{
 .main_title {
   background-color: #4DD7FA;
   margin-bottom: 0;
+  font-weight: bold;
+  font-family: 'Taviraj', serif;
 }
 
 .add_more{
@@ -138,13 +152,17 @@ main section h2{
   border-radius: 30px;
   opacity: .7;
   color: #FEFAC0;
-  font-size: 2.75em;
+  font-size: 2em;
 }
 
 .more span{
   text-decoration: underline;
   font-size: .7em;
   text-align: center;
+}
+
+.song_name{
+  font-family: 'Taviraj', serif;
 }
 
 /*ADD MUSIC PAGE STYLING*/
@@ -184,15 +202,20 @@ section.add_music{
   border-radius: 20px;
   padding: .5%;
   border: 2px solid black;
+  text-align: center;
 }
 
 .delete{
   margin-left: 7.5%;
   border-radius: 150px;
   background-color: #FFB4B0;
-  padding: .5%;
+  padding: .3%;
   border: 2px solid black;
-  font-size: .45em;
+  font-size: .3em;
+  vertical-align: middle;
+/*  position: relative;
+  top: -25px;
+  right: -430px;*/
 }
 
 .delete:hover{
@@ -214,4 +237,7 @@ section.add_music{
   margin-left: 5%;
 }
 
+.artist{
+  margin-left: 2%;
+}
 

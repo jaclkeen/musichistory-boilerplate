@@ -2,26 +2,36 @@
   {
    "title": "Wheel in the Sky",
     "artist": "Journey",
-    "album": "Journey Greatest Hits"
+    "album": "Journey Greatest Hits",
+    "genre": "Rock",
+    "length": "4:12"
   },
   {
     "title": "Faithfully",
     "artist": "Journey",
-    "album": "Journey Greatest Hits"
+    "album": "Journey Greatest Hits",
+    "genre": "Rock",
+    "length": "4:24"
   },
   {
     "title": "Lights",
     "artist": "Journey",
-    "album": "Journey Greatest Hits"
+    "album": "Journey Greatest Hits",
+    "genre": "Rock",
+    "length": "3:09"
   },
   {
     "title": "Don't Stop Believin'",
     "artist": "Journey",
-    "album": "Journey Greatest Hits"
+    "album": "Journey Greatest Hits",
+    "genre": "Rock",
+    "length": "4:11"
   },
   {
     "title": "Any Way You Want It",
     "artist": "Journey",
-    "album": "Journey Greatest Hits"
+    "album": "Journey Greatest Hits",
+    "genre": "Rock",
+    "length": "3:24"
   }
 ]

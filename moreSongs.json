@@ -2,26 +2,36 @@
   {
    "title": "Take It Easy",
     "artist": "The Eagles",
-    "album": "Vinyl Record"
+    "album": "Vinyl Record",
+    "genre": "Rock",
+    "length": "3:30"
   },
   {
     "title": "Witchy Woman",
     "artist": "The Eagles",
-    "album": "Vinyl Record"
+    "album": "Vinyl Record",
+    "genre": "Rock",
+    "length": "4:14"
   },
   {
     "title": "Peaceful Easy Feeling",
     "artist": "The Eagles",
-    "album": "Vinyl Record"
+    "album": "Vinyl Record",
+    "genre": "Rock",
+    "length": "4:13"
   },
   {
     "title": "Tryin",
     "artist": "The Eagles",
-    "album": "Vinyl Record"
+    "album": "Vinyl Record",
+    "genre": "Rock",
+    "length": "2:54"
   },
   {
     "title": "Desperado",
     "artist": "The Eagles",
-    "album": "Desperado"
+    "album": "Desperado",
+    "genre": "Rock",
+    "length": "3:33"
   }
 ]

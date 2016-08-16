@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="music_history.css">
   <meta charset="utf-8">
@@ -18,16 +20,18 @@
   </nav>
     <div class="music" id="music">
       <section class="sidebar"><br>
-        <label for="length">Song length:</label><br>
-        <input type="range" name="length" class="length" id="length">
+
+        <label for="length">Song length:</label><span id="length_val" class="length_val">5:00</span><br>
+
+        <input type="range" min="0" max="599" class="length" id="length"><br>
 
         <label for="artist">Artist:</label><br>
         <select id="artist">
-          <option value="one">Option 1</option>
-          <option value="two">Option 2</option>
-          <option value="three">Option 3</option>
-          <option value="four">Option 4</option>
-          <option value="five">Option 5</option>
+          <option value="one" id="1">Option 1</option>
+          <option value="two" id="2">Option 2</option>
+          <option value="three" id="3">Option 3</option>
+          <option value="four" id="4">Option 4</option>
+          <option value="five" id="5">Option 5</option>
         </select><br>
 
         <label for="album">Album:</label><br>
@@ -80,6 +84,12 @@
           <label for="add_album">Album: </label>
           <span><input type="text" id="add_album" name="add_album"></span><br><br>
 
+          <label for="add_genre">Genre: </label>
+          <span><input type="text" name="add_genre" id="add_genre"></span><br><br>
+
+          <label for="add_length">Length: </label>
+          <span><input type="text" name="add_length" id="add_length" placeholder="Ex: 3:45"></span><br><br>
+
           <input type="button" class="add" id="add" name="add" value="Add Song">
           <input type="button" class="clear" name="clear" id="clear" value="Clear"><br><br>
       </fieldset>
@@ -88,6 +98,7 @@
 </div>
 </div>
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/js/tooltip.js"></script>
 <script src="addSongs.js"></script>
 <script type="text/javascript" src="songs.js"></script>
 </body>
