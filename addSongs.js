@@ -2,6 +2,7 @@ function addToDom(song_info){
   var $songlist = $('#songlist');
   song_info.forEach(function(item){
     var $song_element = $("<div></div>");
+    $song_element.addClass('element')
     $song_element.html(`<h2 class='song_name'>${item.title}
         <button class='delete glyphicon glyphicon-remove'></button></h2>
         <p class='artist'>${item.artist}</p><span> &nbsp;|&nbsp;</span>
@@ -9,13 +10,8 @@ function addToDom(song_info){
         <p class="genre">${item.genre}</p><span> &nbsp;|&nbsp; </span>
         <p class="length">${item.length}</p>`);
 
-    $song_element.on("click", function(e){
-      if(e.target && e.target.nodeName === "BUTTON"){
-        $(this).remove()
-      }
-    })
-      Songs.addSong(item)
-      $songlist.append($song_element)
+    Songs.addSong(item)
+    $songlist.append($song_element)
   });
   addArtistsIntoFilter(song_info)
   addAlbumsIntoFilter(song_info)
@@ -73,6 +69,13 @@ function eventListeners(){
   var filter = $('#filter')
   filter.on('click', function(){
     filterStuff(Songs.getSongs)
+  })
+
+  var $song_element = $('.element')
+    $song_element.on("click", function(e){
+    if(e.target && e.target.nodeName === "BUTTON"){
+      $(this).remove()
+    }
   })
 }
 

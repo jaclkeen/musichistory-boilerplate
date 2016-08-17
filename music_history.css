@@ -59,14 +59,20 @@ nav li {
 }
 
 .sidebar input[type="button"]{
-  margin-left: 32.5%;
-  margin-top: 5%;
+  display: inline-block;
+  margin-left: 28%;
+  margin-top: 10%;
   margin-bottom: 5%;
   border-radius: 15px;
   border: 2px solid black;
-  padding: 2%;
-  width: 35%;
+  padding: 1.5%;
+  width: 45%;
 }
+
+.clear{
+  display: inline-block;
+}
+
 
 .sidebar select {
   padding: 1%;

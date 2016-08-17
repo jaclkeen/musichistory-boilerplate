@@ -10,6 +10,7 @@ var Songs = (function(){
       url: file
     }).done(function(content){
       addToDom(content)
+      eventListeners()
       spa()
     })
   }
@@ -102,11 +103,7 @@ function filterStuff(arr){
       $('#album').attr('disabled', true)
     }
   })
-
-  console.log(length, artist, album, genre)
-  console.log(arr)
 }
 
 Songs.loadFiles('songs.json');
-eventListeners()
 
