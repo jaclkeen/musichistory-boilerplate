@@ -14,10 +14,11 @@ function addToDom(song_info){
         $(this).remove()
       }
     })
-    Songs.addSong(item)
-    $songlist.append($song_element);
+      Songs.addSong(item)
+      $songlist.append($song_element)
   });
-  addArtistsFilter(song_info)
+  addArtistsIntoFilter(song_info)
+  addAlbumsIntoFilter(song_info)
 }
 
 function addUserInputSong(){
@@ -26,12 +27,12 @@ function addUserInputSong(){
   var $add_artist = $("#add_artist").val();
   var $add_genre = $("#add_genre").val();
   var $add_length = $("#add_length").val();
+  var s_banner = $('#success_banner')
   //VALIDATE SONG INPUT
   if($add_song === "" || $add_album === "" || $add_artist === ""){
     return alert("All 3 field must have a value!");
   }
   else{
-    alert("Song added!");
     var userSong = [{
       title: $add_song,
       artist: $add_artist,
@@ -39,14 +40,16 @@ function addUserInputSong(){
       genre: $add_genre,
       length: $add_length
     }]
+    Songs.addSong(userSong)
     addToDom(userSong)
     clearPage();
+    s_banner.fadeIn(500).removeClass('hidden').fadeOut(3000)
   }
 }
 
 function eventListeners(){
   var $add_song = $("#add");
-  $add_song.on("click", addUserInputSong);
+  $add_song.on("click", addUserInputSong)
 
 //CLEAR INPUT FIELDS ON ADD MUSIC PAGE
   var clear_add_music_fields = $("#clear");
@@ -65,6 +68,11 @@ function eventListeners(){
   length.on('input', function(){
     var x = length.val()
     l_val.html(convertTime(x))
+  })
+
+  var filter = $('#filter')
+  filter.on('click', function(){
+    filterStuff(Songs.getSongs)
   })
 }
 

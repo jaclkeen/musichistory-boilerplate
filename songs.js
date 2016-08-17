@@ -9,9 +9,11 @@ var Songs = (function(){
     $.ajax({
       url: file
     }).done(function(content){
-      addToDom(content);
+      addToDom(content)
+      spa()
     })
   }
+
   function spa(){
     $('#add_button').on("click", function(){
       $("#add_music").removeClass('hidden');
@@ -23,12 +25,10 @@ var Songs = (function(){
     })
   }
 
-
   return {
     addSong: addSongsToArray,
     getSongs: _songs,
-    loadFiles: showJSON,
-    SPA: spa,
+    loadFiles: showJSON
   }
 })()
 
@@ -40,19 +40,73 @@ function clearPage(){
   $("#add_length").val("");
 }
 
-function addArtistsFilter(arr){
+function addArtistsIntoFilter(arr){
   var artist_select = document.getElementById('artist')
-  var new_artist = []
-  var i = 0
-    for(var j = 0; j < arr.length; j++){
-      if(new_artist[i] !== arr[j].artist){
-        new_artist.push(arr[j].artist)
-        artist_select.innerHTML += `<option>${new_artist}</option`
-      }
+  arr.filter(function(item){
+      return f_array = item.artist
+  })
+
+  artist_select.innerHTML += `<option value="${f_array}">${f_array}</option`
+  console.log(f_array)
+}
+
+function addAlbumsIntoFilter(arr){
+  var album_select = document.getElementById('album')
+  arr.filter(function(item){
+      return new_album = item.album
+  })
+  album_select.innerHTML += `<option value="${new_album}">${new_album}</option>`
+  console.log(new_album)
+}
+
+function filterStuff(arr){
+  var length = $('#length').val()
+  var artist = $('#artist').val()
+  var album = $('#album').val()
+  var genre = $('#genre').val()
+  $('#songlist').html("<div></div>")
+
+
+  arr.forEach(function(item){
+    if(artist === item.artist){
+      $('#songlist').append(`<h2 class='song_name'>${item.title}
+      <button class='delete glyphicon glyphicon-remove'></button></h2>
+        <p class='artist'>${item.artist}</p><span> &nbsp;|&nbsp;</span>
+        <p class='album'>${item.album}</p><span> &nbsp;|&nbsp; </span>
+        <p class="genre">${item.genre}</p><span> &nbsp;|&nbsp; </span>
+        <p class="length">${item.length}</p>`)
+
+      $('#album').attr('disabled', true)
+      $('#genre').attr('disabled', true)
     }
-  console.log(new_artist)
+    if(album === item.album){
+      $('#songlist').append(`<h2 class='song_name'>${item.title}
+      <button class='delete glyphicon glyphicon-remove'></button></h2>
+        <p class='artist'>${item.artist}</p><span> &nbsp;|&nbsp;</span>
+        <p class='album'>${item.album}</p><span> &nbsp;|&nbsp; </span>
+        <p class="genre">${item.genre}</p><span> &nbsp;|&nbsp; </span>
+        <p class="length">${item.length}</p>`)
+
+      $('#artist').attr('disabled', true)
+      $('#genre').attr('disabled', true)
+    }
+
+    if(genre === item.genre){
+      $('#songlist').append(`<h2 class='song_name'>${item.title}
+      <button class='delete glyphicon glyphicon-remove'></button></h2>
+        <p class='artist'>${item.artist}</p><span> &nbsp;|&nbsp;</span>
+        <p class='album'>${item.album}</p><span> &nbsp;|&nbsp; </span>
+        <p class="genre">${item.genre}</p><span> &nbsp;|&nbsp; </span>
+        <p class="length">${item.length}</p>`)
+      $('#artist').attr('disabled', true)
+      $('#album').attr('disabled', true)
+    }
+  })
+
+  console.log(length, artist, album, genre)
+  console.log(arr)
 }
 
 Songs.loadFiles('songs.json');
 eventListeners()
-Songs.SPA();
+
