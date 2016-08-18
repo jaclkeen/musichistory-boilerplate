@@ -1,20 +1,15 @@
 function addToDom(song_info){
-  var $songlist = $('#songlist');
   song_info.forEach(function(item){
-    var $song_element = $("<div></div>");
-    $song_element.addClass('element')
-    $song_element.html(`<h2 class='song_name'>${item.title}
-        <button class='delete glyphicon glyphicon-remove'></button></h2>
-        <p class='artist'>${item.artist}</p><span> &nbsp;|&nbsp;</span>
-        <p class='album'>${item.album}</p><span> &nbsp;|&nbsp; </span>
-        <p class="genre">${item.genre}</p><span> &nbsp;|&nbsp; </span>
-        <p class="length">${item.length}</p>`);
-
+    // FUNCTION CALL THAT PRINTS JSON DATA TO DOM
+    printStuff(item)
+    // ADDS JSON DATA TO PRIVATE _SONGS ARRAY
     Songs.addSong(item)
-    $songlist.append($song_element)
   });
-  addArtistsIntoFilter(song_info)
-  addAlbumsIntoFilter(song_info)
+
+// ADDS ARTIST TO FILTER TAB
+addArtistsIntoFilter(song_info)
+// ADDS ALBUM TO FILTER TAB
+addAlbumsIntoFilter(song_info)
 }
 
 function addUserInputSong(){
@@ -24,7 +19,7 @@ function addUserInputSong(){
   var $add_genre = $("#add_genre").val();
   var $add_length = $("#add_length").val();
   var s_banner = $('#success_banner')
-  //VALIDATE SONG INPUT
+  // VALIDATE SONG INPUT
   if($add_song === "" || $add_album === "" || $add_artist === ""){
     return alert("All 3 field must have a value!");
   }
@@ -36,14 +31,25 @@ function addUserInputSong(){
       genre: $add_genre,
       length: $add_length
     }]
-    Songs.addSong(userSong)
-    addToDom(userSong)
+    // ADDS ARRAY OBJECT TO SONG ARRAY
+    Songs.addSong(userSong[0])
+    // CLEARS INPUT FIELDS
     clearPage();
+    // SHOWS WINNING BANNER
     s_banner.fadeIn(500).removeClass('hidden').fadeOut(3000)
   }
+    // PRINTS INPUT TO DOM
+    printStuff(userSong[0])
+    // ADDS ARTIST TO FILTER TAB
+    addArtistsIntoFilter(userSong)
+    // ADDS ALBUM TO FILTER TAB
+    addAlbumsIntoFilter(userSong)
+    // ADDS EVENT LISTENERS TO USER CREATED SONGS
+    eventListeners()
 }
 
 function eventListeners(){
+  // ON SUBMIT CLICK, CALLS ADD USER INPUT SONG FUNCTION
   var $add_song = $("#add");
   $add_song.on("click", addUserInputSong)
 
@@ -66,24 +72,42 @@ function eventListeners(){
     l_val.html(convertTime(x))
   })
 
+  //EXECUTES FILTER ON SONGS ARRAY WHEN FILTER BUTTON IS CLICKED
   var filter = $('#filter')
   filter.on('click', function(){
     filterStuff(Songs.getSongs)
+    timeFilter(Songs.getSongs)
   })
 
+  // REMOVES ELEMENT WHEN RED X IS CLICKED
   var $song_element = $('.element')
     $song_element.on("click", function(e){
     if(e.target && e.target.nodeName === "BUTTON"){
-      $(this).remove()
+      $(this).remove('.element')
     }
   })
-}
+    $song_element.on('mouseover', function(e){
+      if(e.target && e.target.nodeName === "BUTTON"){
+        $(e.target).animate('slow').removeClass('glyphicon glyphicon-remove delete').addClass('remove').html('Delete')
+      }
+    })
 
+    $song_element.on('mouseout', function(e){
+      if(e.target && e.target.nodeName === "BUTTON"){
+        $(e.target).addClass('glyphicon glyphicon-remove delete').removeClass('remove').html('')
+      }
+    })
+}
 // CONVERTS TO TIME FUNCTION
 function convertTime(time){
-  var mins = Math.floor(time/60)
-  var secs = time % 60
-  var time = `${mins}:${(secs < 10 ? "0" : "")}${secs}`
-  return time
+  if(time.includes(':')){
+    return time
+  }
+  else{
+    var mins = Math.floor(time/60)
+    var secs = time % 60
+    var time = `${mins}:${(secs < 10 ? "0" : "")}${secs}`
+    return time
+  }
 }
 
