@@ -70,6 +70,7 @@ function printStuff(thing){
     <p class="genre">${thing.genre}</p><span> &nbsp;|&nbsp; </span>
     <p class="length">${convertTime(thing.length)}</p>`)
   songlist.append(song)
+  buttonListeners()
 }
 
 function filterStuff(arr){
