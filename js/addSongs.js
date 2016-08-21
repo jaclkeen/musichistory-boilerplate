@@ -55,7 +55,7 @@ function eventListeners(){
 // ADDS SECOND JSON FILE TO DOM ON 'MORE' CLICK
   var $more = $('#add_more');
   $more.on("click", function(){
-    Songs.loadFiles('moreSongs.json')
+    Songs.loadFiles('lib/moreSongs.json')
     $(this).css("display", "none");
   })
 // TAKES RANGE INPUT AND CONVERTS TO TIME
@@ -106,4 +106,3 @@ function convertTime(time){
     return time
   }
 }
-
