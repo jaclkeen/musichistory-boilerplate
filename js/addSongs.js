@@ -18,9 +18,14 @@ function addUserInputSong(){
   var $add_genre = $("#add_genre").val();
   var $add_length = $("#add_length").val();
   var s_banner = $('#success_banner')
+
   // VALIDATE SONG INPUT
-  if($add_song === "" || $add_album === "" || $add_artist === ""){
-    return alert("All 3 field must have a value!");
+  if($add_song === "" || $add_album === "" || $add_artist === "" || $add_genre === "" || $add_length === ""){
+    return alert("All 5 field must have a value!");
+  }
+  else if(!$add_length.includes(':')){
+    $('#add_length').val("")
+    return alert("Song length must be in the correct format!");
   }
   else{
     var userSong = [{
