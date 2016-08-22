@@ -1,5 +1,13 @@
-/*GENERAL AND WRAPPER STYLING*/
+/*@import 'footer' THIS WOULD IMPORT A (_FOOTER.SCSS) FILE*/
+
+$test-color: red;
+
 body{
+  background-color: $test-color;
+}
+
+/*GENERAL AND WRAPPER STYLING*/
+/*body{
   background-color: black;
   width: 90%;
   margin: auto;
@@ -21,7 +29,7 @@ div.music {
 }
 
 /*NAV STYLING*/
-nav {
+/*nav {
   background-color: #FFB4B0;
   border: 3px solid white;
   height: 55px;
@@ -40,9 +48,9 @@ nav li {
   font-size: 1.2em;
   color: black;
 }
-
+*/
 /*HOME SIDEBAR STYLING*/
-.sidebar {
+/*.sidebar {
   float: left;
   display: block;
   margin-top: 1%;
@@ -93,8 +101,8 @@ nav li {
   padding-left: 3%;
   padding-right: 3%;
 }
-
-.sidebar input[type="range"] {
+*/
+/*.sidebar input[type="range"] {
   width: 70%;
   display: inline-block;
   margin-left: 10%;
@@ -106,7 +114,7 @@ nav li {
   margin-left: 9%;
 }
 /*MAIN MUSIC LIST DIV*/
-main section {
+/*main section {
   float: right;
   background-color: #FEFAC0;
   border: 3px solid white;
@@ -173,7 +181,7 @@ main section h2{
 }
 
 /*ADD MUSIC PAGE STYLING*/
-section.add_music{
+/*section.add_music{
   margin-top: .5%;
   width: 100%;
 }
@@ -245,7 +253,7 @@ section.add_music{
   border-radius: 150px;
 }
 
-.delete:hover{
+/*.delete:hover{
   background-color: red;
   cursor: pointer;
 }
@@ -267,4 +275,4 @@ section.add_music{
 .artist{
   margin-left: 2%;
 }
-
+*/

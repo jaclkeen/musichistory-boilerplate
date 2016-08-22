@@ -6,22 +6,15 @@ var Songs = (function(){
   }
 
   function showJSON(file){
-    $.ajax({
-      url: file
-    }).done(function(content){
-      addToDom(content)
-      spa()
+    return new Promise(function(resovle, reject){
+      $.ajax({
+        url: file
+      }).done(function(content){
+        var data = content
+        resovle(data)
+        // addToDom(content)
+        // spa()
     })
-  }
-
-  function spa(){
-    $('#add_button').on("click", function(){
-      $("#add_music").removeClass('hidden');
-      $("#music").addClass("hidden");
-    })
-    $("#view_music").on("click", function(){
-      $("#music").removeClass('hidden');
-      $("#add_music").addClass('hidden');
     })
   }
 
@@ -31,6 +24,17 @@ var Songs = (function(){
     loadFiles: showJSON
   }
 })()
+
+function spa(){
+  $('#add_button').on("click", function(){
+    $("#add_music").removeClass('hidden');
+    $("#music").addClass("hidden");
+  })
+  $("#view_music").on("click", function(){
+    $("#music").removeClass('hidden');
+    $("#add_music").addClass('hidden');
+  })
+}
 
 function clearPage(){
   $("#add_song").val("");
@@ -76,7 +80,7 @@ function filterStuff(arr){
   var artist = $('#artist').val()
   var album = $('#album').val()
   var genre = $('#genre').val()
-  $('#songlist').html("<div></div>")
+  $('#songlist').html("")
 
   arr.forEach(function(item){
     if(artist === item.artist && artist !== 'all'){
@@ -104,5 +108,16 @@ function timeFilter(arr){
   })
 }
 
-Songs.loadFiles('lib/songs.json');
-eventListeners()
+Songs.loadFiles('lib/songs.json')
+  .then(
+    function(songData){
+      addToDom(songData)
+    })
+  .then(
+    function(){
+      spa()
+    })
+  .then(
+    function(){
+      eventListeners()
+    })
