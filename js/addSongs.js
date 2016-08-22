@@ -61,7 +61,11 @@ function eventListeners(){
   var $more = $('#add_more');
   $more.on("click", function(){
     Songs.loadFiles('lib/moreSongs.json')
-    $(this).css("display", "none");
+      .then(
+        function(data){
+          addToDom(data)
+      })
+      $(this).css("display", "none");
   })
 // TAKES RANGE INPUT AND CONVERTS TO TIME
   var length = $('#length')
