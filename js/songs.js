@@ -80,7 +80,7 @@ function filterStuff(arr){
   var artist = $('#artist').val()
   var album = $('#album').val()
   var genre = $('#genre').val()
-  $('#songlist').html("<div></div>")
+  $('#songlist').html("")
 
   arr.forEach(function(item){
     if(artist === item.artist && artist !== 'all'){
