@@ -1,13 +1,9 @@
 function addToDom(song_info){
-  song_info.forEach(function(item){
-    // FUNCTION CALL THAT PRINTS JSON DATA TO DOM
-    printStuff(item)
-    // ADDS JSON DATA TO PRIVATE _SONGS ARRAY
-    Songs.addSong(item)
-  });
-// ADDS ARTIST TO FILTER TAB
-addArtistsIntoFilter(song_info)
-// ADDS ALBUM TO FILTER TAB
+  for(var key in song_info){
+    printStuff(song_info[key])
+  }
+
+// addArtistsIntoFilter(song_info)
 addAlbumsIntoFilter(song_info)
 }
 
@@ -58,15 +54,15 @@ function eventListeners(){
   var clear_add_music_fields = $("#clear");
   clear_add_music_fields.on("click", clearPage);
 // ADDS SECOND JSON FILE TO DOM ON 'MORE' CLICK
-  var $more = $('#add_more');
-  $more.on("click", function(){
-    Songs.loadFiles('lib/moreSongs.json')
-      .then(
-        function(data){
-          addToDom(data)
-      })
-      $(this).css("display", "none");
-  })
+  // var $more = $('#add_more');
+  // $more.on("click", function(){
+  //   Songs.loadFiles('lib/moreSongs.json')
+  //     .then(
+  //       function(data){
+  //         addToDom(data)
+  //     })
+  //     $(this).css("display", "none");
+  // })
 // TAKES RANGE INPUT AND CONVERTS TO TIME
   var length = $('#length')
   var l_val = $('#length_val')

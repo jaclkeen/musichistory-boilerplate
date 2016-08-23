@@ -5,10 +5,10 @@ var Songs = (function(){
     _songs[_songs.length] = item;
   }
 
-  function showJSON(file){
+  function showJSON(){
     return new Promise(function(resovle, reject){
       $.ajax({
-        url: file
+        url: 'https://music-history-7288d.firebaseio.com/songs.json'
       }).done(function(content){
         var data = content
         resovle(data)
@@ -44,20 +44,20 @@ function clearPage(){
   $("#add_length").val("");
 }
 
-function addArtistsIntoFilter(arr){
-  var artist_select = document.getElementById('artist')
-  arr.filter(function(item){
-      return f_array = item.artist
-  })
-  artist_select.innerHTML += `<option value="${f_array}">${f_array}</option`
-  console.log(f_array)
-}
+// function addArtistsIntoFilter(arr){
+//   var artist_select = document.getElementById('artist')
+//   arr.filter(function(item){
+//       return f_array = item.artist
+//   })
+//   artist_select.innerHTML += `<option value="${f_array}">${f_array}</option`
+//   console.log(f_array)
+// }
 
 function addAlbumsIntoFilter(arr){
   var album_select = document.getElementById('album')
-  arr.filter(function(item){
-      return new_album = item.album
-  })
+  for(var key in arr){
+    var new_album = arr[key].album
+  }
   album_select.innerHTML += `<option value="${new_album}">${new_album}</option>`
   console.log(new_album)
 }
@@ -108,9 +108,10 @@ function timeFilter(arr){
   })
 }
 
-Songs.loadFiles('lib/songs.json')
+Songs.loadFiles()
   .then(
     function(songData){
+      console.log(songData)
       addToDom(songData)
     })
   .then(
