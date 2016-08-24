@@ -1,7 +1,7 @@
 var Songs = (function(){
   var _songs = [];
 
-  function addSongsToArray(item){
+  function addToSongsArray(item){
     _songs[_songs.length] = item;
   }
 
@@ -12,14 +12,12 @@ var Songs = (function(){
       }).done(function(content){
         var data = content
         resovle(data)
-        // addToDom(content)
-        // spa()
-    })
+      })
     })
   }
 
   return {
-    addSong: addSongsToArray,
+    addToSongsArray: addToSongsArray,
     getSongs: _songs,
     loadFiles: showJSON
   }
@@ -44,22 +42,29 @@ function clearPage(){
   $("#add_length").val("");
 }
 
-// function addArtistsIntoFilter(arr){
-//   var artist_select = document.getElementById('artist')
-//   arr.filter(function(item){
-//       return f_array = item.artist
-//   })
-//   artist_select.innerHTML += `<option value="${f_array}">${f_array}</option`
-//   console.log(f_array)
-// }
+function addArtistsIntoFilter(arr){
+  var artists_select = document.getElementById('artist').childNodes
+  var artist_values = []
+  artists_select.forEach(function(item){
+    artist_values.push(item.value)
+  })
+    if(!artist_values.includes(arr.artist)){
+      let x = `<option value=${arr.artist}>${arr.artist}</option>`
+      $('#artist').append(x)
+    }
+  }
 
 function addAlbumsIntoFilter(arr){
-  var album_select = document.getElementById('album')
-  for(var key in arr){
-    var new_album = arr[key].album
+  var album_select = document.getElementById('album').childNodes
+  var album_values = []
+  album_select.forEach(function(item){
+    album_values.push(item.value)
+  })
+
+  if(!album_values.includes(arr.album)){
+    let x = `<option value="${arr.album}">${arr.album}</option>`
+    $('#album').append(x)
   }
-  album_select.innerHTML += `<option value="${new_album}">${new_album}</option>`
-  console.log(new_album)
 }
 
 function printStuff(thing){
@@ -76,26 +81,27 @@ function printStuff(thing){
   buttonListeners()
 }
 
-function filterStuff(arr){
+function filterStuff(obj){
   var artist = $('#artist').val()
   var album = $('#album').val()
   var genre = $('#genre').val()
   $('#songlist').html("")
 
-  arr.forEach(function(item){
-    if(artist === item.artist && artist !== 'all'){
-      printStuff(item)
+  for(var item in obj){
+    console.log(obj[item])
+    if(artist === obj[item].artist && artist !== 'all'){
+      printStuff(obj[item])
     }
-    else if(album === item.album && album !== 'all'){
-      printStuff(item)
+    else if(album === obj[item].album && album !== 'all'){
+      printStuff(obj[item])
     }
-    else if(genre === item.genre && genre !== 'all'){
-      printStuff(item)
+    else if(genre === obj[item].genre && genre !== 'all'){
+      printStuff(obj[item])
     }
     else if(artist === 'all' && album === 'all' && genre === 'all'){
-      printStuff(item)
+      printStuff(obj[item])
     }
-  })
+  }
 }
 
 function timeFilter(arr){
@@ -111,7 +117,6 @@ function timeFilter(arr){
 Songs.loadFiles()
   .then(
     function(songData){
-      console.log(songData)
       addToDom(songData)
     })
   .then(

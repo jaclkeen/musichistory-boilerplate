@@ -1,10 +1,10 @@
 function addToDom(song_info){
   for(var key in song_info){
     printStuff(song_info[key])
+    Songs.addToSongsArray(song_info[key])
+    addArtistsIntoFilter(song_info[key])
+    addAlbumsIntoFilter(song_info[key])
   }
-
-// addArtistsIntoFilter(song_info)
-addAlbumsIntoFilter(song_info)
 }
 
 function addUserInputSong(){
@@ -31,19 +31,11 @@ function addUserInputSong(){
       genre: $add_genre,
       length: $add_length
     }]
-    // ADDS ARRAY OBJECT TO SONG ARRAY
-    Songs.addSong(userSong[0])
-    // CLEARS INPUT FIELDS
     clearPage();
     // SHOWS WINNING BANNER
     s_banner.fadeIn(500).removeClass('hidden').fadeOut(3000)
   }
-    // PRINTS INPUT TO DOM
-    printStuff(userSong[0])
-    // ADDS ARTIST TO FILTER TAB
-    addArtistsIntoFilter(userSong)
-    // ADDS ALBUM TO FILTER TAB
-    addAlbumsIntoFilter(userSong)
+    addToDom(userSong)
 }
 
 function eventListeners(){
